@@ -10,21 +10,6 @@ import (
 	"github.com/labstack/echo"
 )
 
-/*
-	curl -X POST \
-		http://localhost:1323/data \
-		-H 'Content-Type: application/json' \
-		-d '{
-		"name": "golf",
-		"type": "campaign_stat",
-		"timestamp": 1566801149000,
-		"error": {
-			"code": "MKT-0001",
-			"timestamp": 1566801149000
-		}
-	}'
-*/
-
 type Data struct {
 	Name      string     `json:"name" validate:"required"`
 	Type      string     `json:"type" valdate:"required"`
@@ -33,7 +18,7 @@ type Data struct {
 }
 
 type ErrorData struct {
-	Code      string `json:"code,omitempty" validate:"required"`
+	Code      string `json:"code" validate:"required"`
 	Timestamp int64  `json:"timestamp" validate:"requiredTimeStampOnError"`
 }
 
